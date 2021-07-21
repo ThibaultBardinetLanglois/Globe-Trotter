@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel endroit{% endblock %}
+
+{% block body %}
+    <h1>Créez un nouvel endroit</h1>
+
+    {{ include('country_form/_form.html.twig') }}
+
+    <a href="{{ path('country_index') }}">revenir à l'accueil</a>
+{% endblock %}

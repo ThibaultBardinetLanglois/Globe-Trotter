@@ -1,0 +1,19 @@
+<header>
+        <h1>Votre destination idéale</h1>
+        <h3>Partagez-nous les endroits dans le monde qui vous font rêver</h3>
+        <p>N'hésitez pas à vous inscrire et à donner votre avis sur les destinations choisies par d'autres utilisateurs</p>
+        <div class="connexion-links">
+                <a href="{{ path('country_index') }}">Accueil</a>
+                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                        <p>{{ app.user.username }}</p>
+                        <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+                        <a href="{{ path('user_show_list') }}">Mes destinations idéales</a>
+                {% else %}
+                        <a href="{{ path('app_login') }}"> Se connecter</a>
+                        <a href="{{ path('app_register') }}">S'inscrire</a>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('admin_index') }}">Liste des utilisateurs</a>
+                {% endif %}
+        </div>
+</header

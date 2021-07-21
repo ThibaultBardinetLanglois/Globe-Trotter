@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div></div>
+    
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+        <a href="{{ path('country_new') }}">Ajouter un endroit</a>
+    {% endif %}
+
+    <div class="coutries-page">
+        {% for country in countries %}
+            <a href="{{ path('country_show', {id: country.id}) }}">
+                <div class="country-block">
+                    <img src="{{ asset('uploads/images/' ~ country.image) }}">
+                    <div class="country-block-description">
+                        <h3>{{ country.name }}</h3>
+                        <p>{{ country.littleDescription }}</p>
+                    </div>
+                </div>
+            </a>
+        {% else %}
+            Aucun endroit d'enregistré
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div></div>
+    <div class="country-show-page">
+        <div class="country-show">
+            <img src="{{ asset('uploads/images/' ~ country.image) }}">
+            <div class="country-show-page-description">
+                <h1>{{ country.name }}</h1>
+                <p>{{ country.bigDescription }}</p>
+                <p><strong>Posté par </strong>{{ country.owner.username }}<p>
+            </div>
+        </div>
+        {% if is_granted('ROLE_USER') %}
+            {% if country.owner.username == user.username %}
+                <a href="{{ path('country_edit', {id: country.id}) }}">Mettre à jour</a>
+            {% endif %}
+        {% endif %}
+        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+        
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+            {{ form_end(form) }}
+        {% endif %}
+    </div>
+
+{% endblock %}
