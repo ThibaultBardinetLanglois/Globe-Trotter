@@ -27,7 +27,7 @@ class CountryFormController extends AbstractController
     public function index(CountryRepository $countryRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            'countries' => $countryRepository->findAll()
+            'countries' => $countryRepository->findBy([],['id' => 'DESC'])
         ]);
     }
 

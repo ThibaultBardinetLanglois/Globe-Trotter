@@ -1,0 +1,202 @@
+/*========== COUNTRY-SHOW-PAGE ==========*/
+
+@import '/assets/styles/app.scss';
+
+.country-show-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > .country-show-block {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        color: $primary-black;
+        margin: 4% auto;
+        > .country-show-block-img {
+            width: 50%;
+            margin: 0 auto;
+            > img {
+                object-fit: cover;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    > a {
+        font-size: 2rem;
+        margin-bottom: 2.4rem;
+        color: $primary-orange;
+        transition: color 0.5s ease;
+        &:hover {
+            color: $primary-red;
+        }
+    }
+    > h4 {
+        color: $primary-black;
+        margin-bottom: 1.6rem;
+    }
+    > .country-show-comment-form {
+        > form {
+            color: #fff;
+            background-color: rgba(253, 127, 24, 0.582);
+            width: 100%;
+            border-radius: 40px;
+            margin-bottom: 3.2rem;
+            > .country-comment-form-row {
+                display: flex;
+                flex-direction: column;
+                padding: 2.4rem;
+                > label {
+                    font-size: 2rem;
+                    margin-bottom: 2rem;
+                    text-align: center;
+                }
+                > #comment_comment {
+                    outline: none;
+                    border: none;
+                    font-size: 1.6rem;
+                    padding: 0.8rem;
+                    color: $primary-black;
+                    border-radius: 20px;
+                }
+            }
+            > button {
+                display: block;
+                font-size: 2rem;
+                padding: 0.8rem;
+                margin: 1.6rem auto 1.6rem auto;
+                outline: none;
+                position: relative;
+                bottom: 1.6rem;
+                border: 1px solid #fff;
+                border-radius: 40px;
+                background-color: rgba(253, 127, 24, 0);
+                color: #fff;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                &:hover {
+                    border-color: $primary-red;
+                    color: $primary-red;
+                }
+            }
+        }
+    }
+    > .country-show-comment-block {
+        border: 1px solid rgba(253, 127, 24, 0.582);
+        border-radius: 40px;
+        width: 40%;
+        margin-bottom: 1.6rem;
+        padding: 1.6rem;
+        > p {
+            color: $primary-black;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            > strong {
+                font-size: 2rem;
+            }
+        }
+    }
+    > form {
+        > button {
+            display: block;
+                font-size: 2rem;
+                padding: 1.6rem;
+                margin: 2.4rem auto 2.4rem auto;
+                outline: none;
+                position: relative;
+                bottom: 1.6rem;
+                border: 1px solid $primary-orange;
+                border-radius: 40px;
+                background-color: #fff;
+                color: $primary-orange;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                &:hover {
+                    border-color: $primary-red;
+                    color: $primary-red;
+                }
+        }
+    }
+}
+
+/*========== RESPONSIVE ==========*/
+/*DESKTOP*/
+
+@media screen and (max-width: 1250px) {
+    .country-show-page {
+        > .country-show-block {
+            > .country-show-block-img {
+                width: 70%;
+            }
+            > .country-show-block-description {
+                > h1 {
+                    font-size: 4rem;
+                    text-align: center;
+                    margin: 2.4rem 0;
+                }
+            }
+        }
+        > h4 {
+            font-size: 2rem;
+        }
+        > .country-show-comment-block {
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .country-show-page {
+        > .country-show-block {
+            > .country-show-block-img {
+                width: 80%;
+            }
+            > .country-show-block-description {
+                > h1 {
+                    font-size: 2.8rem;
+                }
+            }
+        }
+        > h4 {
+            font-size: 1.6rem;
+        }
+        > .country-show-comment-block {
+            width: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .country-show-page {
+        > .country-show-block {
+            > .country-show-block-description {
+                > p {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+        > .country-show-comment-block {
+            > p {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .country-show-page {
+        > a {
+            text-align: center;
+            margin: 1.6rem;
+        }
+        > h4 {
+            font-size: 1.4rem;
+            margin: 1.6rem 1.6rem;
+            text-align: center;
+        }
+        > .country-show-comment-form {
+            width: 70%;
+        }
+    }
+}

@@ -22,7 +22,7 @@ class CountryType extends AbstractType
             ->add('littleDescription', TextareaType::class, [
                 'label' => 'Phrase d\'introduction',
                 'attr' => [
-                    'placeholder' => 'Décrivez-vous',
+                    'placeholder' => 'Faîtes une petite phrase d\'ammorce sur le lieu',
                     'cols' => '30',
                     'rows' => '4'
                 ],
@@ -30,7 +30,7 @@ class CountryType extends AbstractType
             ->add('bigDescription', TextareaType::class, [
                 'label' => 'Description de l\'endroit',
                 'attr' => [
-                    'placeholder' => 'Décrivez-vous',
+                    'placeholder' => 'Là c\'est bon, lâchez-vous',
                     'cols' => '30',
                     'rows' => '10'
                 ],

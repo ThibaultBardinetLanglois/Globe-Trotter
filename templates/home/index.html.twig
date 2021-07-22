@@ -1,25 +1,31 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
     <div></div>
-    
-    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-        <a href="{{ path('country_new') }}">Ajouter un endroit</a>
-    {% endif %}
-
-    <div class="coutries-page">
+    <a class="arrow-link-menu" href="#header-title">&uarr;</a>
+    <div class="countries-home-page">
+        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+            <a class="add-place-link" href="{{ path('country_new') }}"><em>+</em>Ajouter un endroit</a>
+        {% endif %}
+        <h2>Endroits déjà partagés</h2>
         {% for country in countries %}
-            <a href="{{ path('country_show', {id: country.id}) }}">
-                <div class="country-block">
+            <a class="country-block" href="{{ path('country_show', {id: country.id}) }}">
+                <div class="country-block-image">
                     <img src="{{ asset('uploads/images/' ~ country.image) }}">
-                    <div class="country-block-description">
-                        <h3>{{ country.name }}</h3>
-                        <p>{{ country.littleDescription }}</p>
-                    </div>
+                </div>
+                <div class="country-block-description">
+                    <h3>{{ country.name }}</h3>
+                    <p>{{ country.littleDescription }}</p>
                 </div>
             </a>
+            <div class="separation-line"></div>
         {% else %}
             Aucun endroit d'enregistré
         {% endfor %}

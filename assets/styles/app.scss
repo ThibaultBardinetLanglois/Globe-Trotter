@@ -3,9 +3,10 @@
 /*Variables*/
 
 $primary-green: #017A71;
-$primary-orange: #FF9652;
-$primary-yellow: #F9AE05;
+$primary-orange: #ffa153;
+$primary-yellow: rgb(251, 253, 91);
 $primary-red: #F05A1F;
+$primary-black: rgb(58, 46, 46);
 
 * {
     margin: 0;
@@ -15,52 +16,120 @@ $primary-red: #F05A1F;
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: #fff;
     font-size: 1.6rem;
     font-family: monospace;
+    > .arrow-link-menu {
+        position: fixed;
+        top: 35vh;
+        left: 4.5%;
+        text-decoration: none;
+        color: $primary-orange;
+        font-size: 3.2rem;
+        padding: 0rem 1.6rem;
+        border: 1px solid $primary-orange;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: translateY(-0.3rem);
+        }
+    }
 }
 
 h1 {
     font-size: 4.8rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 h2 {
     font-size: 4rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 h3{
     font-size: 3.2rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 h4 {
     font-size: 2.4rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+p {
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    letter-spacing: 1px;
+    line-height: 1.6;
 }
 
 /*========== HEADER ==========*/
 
 header {
-    background-color: $primary-green;
+    width:100%;
+    min-height: 30vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(40, 147, 180, 0.404), 
+        rgba(40, 180, 133, 0.876)),
+        url(/assets/images/voyage5.jpg);
+        background-size: cover;
+        background-position: center;
     color: #fff;
+    position: relative;
     > h1 {
         text-align: center;
-        padding: 1.6rem;
+        padding: 3.2rem 0 0 0;
+        margin: 0 1.6rem;
     }
-    > h3 {
+    > h4 {
         text-align: center;
-        padding: 1.6rem;
+        padding: 0.8rem 0 0 0;
+        margin: 0 1.6rem;
     }
     > p {
         text-align: center;
-        padding: 1.6rem;
+        font-size: 2rem;
+        padding: 0.8rem;
+        margin: 0 1.6rem 2.4rem 0;
+    }
+    .salutation-message {
+        position: absolute;
+        top: 17%;
+        right: 5%;
+        > em {
+            color: $primary-yellow;
+            text-transform: uppercase;
+        }
     }
     > .connexion-links {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0.8rem;
         > a {
             text-decoration: none;
             color: #fff;
-            font-size: 1.6rem;
+            font-size: 2.4rem;
+            transition: color 0.5s ease;
+            &:hover {
+                color: $primary-yellow;
+            }
         }
     }
 }
@@ -68,12 +137,274 @@ header {
 /*========== FOOTER ==========*/
 
 footer {
-    background-color: $primary-green;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(40, 147, 180, 0.418), 
+        rgba(40, 180, 133, 0.876)),
+        url(/assets/images/voyage5.jpg);
+        background-size: cover;
+        background-position: top;
     text-align: center;
     padding: 1.6rem;
+    margin-top: 1.6rem;
     > a {
         text-decoration: none;
         color: #fff;
-        font-size: 1.6rem;
+        font-size: 2rem;
+        transition: color 0.5s ease;
+        &:hover{
+            color: $primary-yellow;
+        }
+    }
+}
+
+/*========== RESPONSIVE ==========*/
+/*DESKTOP*/
+
+@media screen and (max-width: 1500px) {
+    body {
+        > .arrow-link-menu {
+            top: 38vh;
+        }
+    }
+}
+
+@media screen and (max-width: 1425px) {
+    header {
+        .salutation-message {
+            top: 2%;
+            right: 2%;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 1250px) {
+    /*GENERAL PRESETS*/
+    body {
+        > .arrow-link-menu {
+            top: 38vh;
+            left: 4%;
+            font-size: 2.4rem;
+            padding: 0rem 1.2rem;
+        }
+        > h1 {
+            font-size: 4rem;
+        }
+        > h2 {
+            font-size: 3.2rem;
+        }
+        > h3 {
+            font-size: 2.4rem;
+        }
+        > h4 {
+            font-size: 2rem;
+        }
+        > p {
+            font-size: 1.6rem;
+        }
+    }
+
+    /*HEADER*/
+    header {
+        min-height: 25vh;
+        > .connexion-links {
+            > a {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    header {
+        min-height: 22vh;
+        > h1 {
+            font-size: 3.2rem;
+        }
+        > h4 {
+            font-size: 2rem;
+        }
+        > p {
+            font-size: 1.4rem;
+        }
+        .salutation-message {
+            font-size: 1.6rem;
+        }
+        > .connexion-links {
+            > a {
+                font-size: 1.6rem;
+            }
+        }
+    }
+
+    footer {
+        > a {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+/*TABLETS & IPHONES*/
+@media screen and (max-width: 860px) {
+    /*GENERAL PRESETS*/
+    body {
+        > .arrow-link-menu {
+            top: 37.5vh;
+            left: 5%;
+        }
+        > h2 {
+            font-size: 2.4rem;
+        }
+        > h3 {
+            font-size: 2rem;
+        }
+        > h4 {
+            font-size: 1.6rem;
+        }
+        > p {
+            font-size: 1.6rem;
+        }
+    }
+    
+    /*HEADER*/
+    header {
+        .salutation-message {
+            font-size: 1.4rem;
+            top: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+            > em {
+                color: $primary-yellow;
+                text-transform: uppercase;
+            }
+        }
+        /*===== BURGER MENU =====*/
+        > .burger-icon {
+            position: absolute;
+            margin-left: 3%;
+            top: 8%;
+            right: 4%;
+            width: 3.2rem;
+            height: 2.4rem;
+            z-index: 201;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            > .line {
+                width: 100%;
+                height: 3px;
+                background-color: $primary-yellow;
+                transition: 0.6s all ease;
+                }
+            > .rotate1 {
+                transform: rotateZ(-405deg) translate(-4px, 6px);
+            }
+            > .disapear {
+                opacity: 0;
+            }
+            > .rotate2 {
+                transform: rotateZ(405deg) translate(-9px, -10px);
+            } 
+        }
+        > .connexion-links {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            min-height: 100vh;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 101;
+            background: linear-gradient(
+            to left bottom, 
+            rgba(40, 180, 105, 0.794), 
+            rgba(51, 204, 171, 0.945)
+            );
+            clip-path: circle(100px at 95% -14%);
+            -webkit-clip-path: circle(100px at 95% -14%);
+            transition: all 0.6s ease-out;
+            pointer-events: none;
+            > a {
+                font-size: 2rem;
+                margin-bottom: 3.2rem;
+            }
+        }
+        > .change {
+            clip-path: circle(1400px at 95% -14%);
+            -webkit-clip-path: circle(1400px at 95% -14%);
+            pointer-events: all;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /*GENERAL PRESETS*/
+    body {
+        > .arrow-link-menu {
+            top: 42vh;
+            left: 3%;
+        }
+        > h1 {
+            font-size: 2.4rem;
+        }
+        > h2 {
+            font-size: 2rem;
+        }
+        > h3 {
+            font-size: 1.6rem;
+        }
+        > h4 {
+            font-size: 1.4rem;
+        }
+        > p {
+            font-size: 1.4rem;
+        }
+    }
+    
+    header {
+        .salutation-message {
+            margin-top: 1.6rem;
+        }
+        > h1 {
+            font-size: 2.4rem;
+            padding: 5.6rem 0 0 0;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        > .arrow-link-menu {
+            top: 37vh;
+            left: 1%;
+        }
+    }
+
+    header {
+        .burger-icon {
+            top: 6%;
+        }
+
+        .salutation-message {
+            width: 70%;
+        }
+
+        > .connexion-links {
+            > a {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 410px) {
+    body {
+        > .arrow-link-menu {
+            top: 40vh;
+        }
     }
 }

@@ -1,19 +1,38 @@
 <header>
-        <h1>Votre destination idéale</h1>
-        <h3>Partagez-nous les endroits dans le monde qui vous font rêver</h3>
+        <div class="burger-icon">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+        </div>
+        <h1 id="header-title">Votre destination idéale</h1>
+        <h4>Partagez-nous les endroits dans le monde qui vous font rêver</h4>
         <p>N'hésitez pas à vous inscrire et à donner votre avis sur les destinations choisies par d'autres utilisateurs</p>
+        {% if app.user %}
+                <h4 class="salutation-message">Bonjour <em>{{ app.user.username }}</em></h4>
+        {% endif %}
         <div class="connexion-links">
                 <a href="{{ path('country_index') }}">Accueil</a>
-                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-                        <p>{{ app.user.username }}</p>
-                        <a href="{{ path('app_logout') }}"> Se déconnecter</a>
-                        <a href="{{ path('user_show_list') }}">Mes destinations idéales</a>
-                {% else %}
-                        <a href="{{ path('app_login') }}"> Se connecter</a>
-                        <a href="{{ path('app_register') }}">S'inscrire</a>
-                {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if app.request.attributes.get('_route') != 'app_register' %}
+                        {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('admin_index') }}">Liste des utilisateurs</a>
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                                <a href="{{ path('user_show_list') }}">Mes destinations</a>
+                                <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+                        {% else %}
+                                <a href="{{ path('app_login') }}"> Se connecter</a>
+                        {% endif %}
+                {% else %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('admin_index') }}">Liste des utilisateurs</a>
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                                <a href="{{ path('user_show_list') }}">Mes destinations</a>
+                                <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+                        {% else %}
+                                <a href="{{ path('app_login') }}"> Se connecter</a>
+                                <a href="{{ path('app_register') }}">S'inscrire</a>
+                        {% endif %}
                 {% endif %}
         </div>
 </header

@@ -1,12 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('country-show') }}
+{% endblock %}
+
 {% block body %}
 
     <div></div>
+    <a class="arrow-link-menu" href="#header-title">&uarr;</a>
     <div class="country-show-page">
-        <div class="country-show">
-            <img src="{{ asset('uploads/images/' ~ country.image) }}">
-            <div class="country-show-page-description">
+        <div class="country-show-block">
+            <div class="country-show-block-img">
+                <img src="{{ asset('uploads/images/' ~ country.image) }}">
+            </div>
+            <div class="country-show-block-description">
                 <h1>{{ country.name }}</h1>
                 <p>{{ country.bigDescription }}</p>
                 <p><strong>Posté par </strong>{{ country.owner.username }}<p>
@@ -14,21 +22,28 @@
         </div>
         {% if is_granted('ROLE_USER') %}
             {% if country.owner.username == user.username %}
-                <a href="{{ path('country_edit', {id: country.id}) }}">Mettre à jour</a>
+                <a href="{{ path('country_edit', {id: country.id}) }}">Mettre à jour la destination</a>
             {% endif %}
         {% endif %}
         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-            <h3>Voulez-vous partager votre expérience ?</h3>
-            {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-            {{ form_end(form) }}
+            <h4>Voulez-vous partager votre expérience ?</h4>
+            <div class="country-show-comment-form">
+                {{ form_start(form) }}
+                    <div class="country-comment-form-row">
+                        <label for="comment_comment">Commentaire</label>
+                        {{ form_widget(form.comment) }}
+                    </div>
+                    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+                {{ form_end(form) }}
+            </div>
         {% endif %}
-        <h3>Commentaires déjà postés</h3>
+        <h4>Commentaires déjà postés</h4>
         {% for comment in comments %}
-            <p><strong>Posté par : </strong>{{ comment.author.username }}</p>
-            <p>Le {{ comment.date|format_datetime('full', locale='fr') }}</p>
-            <p>{{ comment.comment }}</p>
+            <div class="country-show-comment-block">
+                <p><strong>Posté par : </strong>{{ comment.author.username }}</p>
+                <p>Le {{ comment.date|format_datetime('full', locale='fr') }}</p>
+                <p>{{ comment.comment }}</p>
+            </div>
             {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
                 {% if user.username == comment.author.username or is_granted('ROLE_ADMIN') %}
                     {% include 'country/_delete_comment.html.twig' %}
