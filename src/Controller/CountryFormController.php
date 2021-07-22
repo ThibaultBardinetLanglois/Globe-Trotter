@@ -93,6 +93,7 @@ class CountryFormController extends AbstractController
         return $this->render('country/show.html.twig', [
             'country' => $country,
             'user' => $user,
+            'comments' => $comments,
             'form' => $form->createView()
         ]);
     }
@@ -143,6 +144,13 @@ class CountryFormController extends AbstractController
     ): Response
     {
         if ($this->isCsrfTokenValid('delete'.$country->getId(), $request->request->get('_token'))) {
+            $image = $country->getImage();
+            if ($image !== null) {
+                if (is_string($this->getParameter('images_directory'))) {
+                    $imageName = $this->getParameter('images_directory') . '/' . $image;
+                    unlink($imageName);
+                }
+            }
             $em->remove($country);
             $em->flush();
         }

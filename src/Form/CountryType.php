@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class CountryType extends AbstractType
@@ -18,11 +19,21 @@ class CountryType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom de l\'endroit'
             ])
-            ->add('littleDescription', TextType::class, [
-                'label' => 'Phrase d\'introduction'
+            ->add('littleDescription', TextareaType::class, [
+                'label' => 'Phrase d\'introduction',
+                'attr' => [
+                    'placeholder' => 'Décrivez-vous',
+                    'cols' => '30',
+                    'rows' => '4'
+                ],
             ])
-            ->add('bigDescription', TextType::class, [
-                'label' => 'Description'
+            ->add('bigDescription', TextareaType::class, [
+                'label' => 'Description de l\'endroit',
+                'attr' => [
+                    'placeholder' => 'Décrivez-vous',
+                    'cols' => '30',
+                    'rows' => '10'
+                ],
             ])
             ->add('image', FileType::class, [
                 'label' => 'Image',

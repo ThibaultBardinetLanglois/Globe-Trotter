@@ -23,16 +23,20 @@ class Country
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut être vide")
+     * @Assert\Length(max="255", maxMessage="Vous ne pouvez dépasser {{ limit }} caractères, {{ value }} sont actuellement rentrés")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Ce champ ne peut être vide")
      */
     private $littleDescription;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Ce champ ne peut être vide")
      */
     private $bigDescription;
 

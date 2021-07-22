@@ -18,12 +18,25 @@
             {% endif %}
         {% endif %}
         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-        
+            <h3>Voulez-vous partager votre expérience ?</h3>
             {{ form_start(form) }}
                 {{ form_widget(form) }}
                 <button class="btn">{{ button_label|default('Enregistrer') }}</button>
             {{ form_end(form) }}
         {% endif %}
+        <h3>Commentaires déjà postés</h3>
+        {% for comment in comments %}
+            <p><strong>Posté par : </strong>{{ comment.author.username }}</p>
+            <p>Le {{ comment.date|format_datetime('full', locale='fr') }}</p>
+            <p>{{ comment.comment }}</p>
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                {% if user.username == comment.author.username or is_granted('ROLE_ADMIN') %}
+                    {% include 'country/_delete_comment.html.twig' %}
+                {% endif %}
+            {% endif %}
+        {% else %}
+            Aucun commentaires enregistrés pour ce lieu
+        {% endfor %}
     </div>
 
 {% endblock %}
