@@ -1,13 +1,13 @@
-/*========== LIST-COUNTRIES-PAGE ==========*/
+/*========== admin-show-user-list ==========*/
 
 @import '/assets/styles/app.scss';
 
-.list-user-page {
+.admin-list-user-page {
     width: 100%;
+    min-height: 67vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 65vh;
     > #arrow-link-menu {
         position: fixed;
         top: 35vh;
@@ -34,13 +34,13 @@
         text-align: center;
         color: $primary-black;
     }
-    > .list-user-block {
+    > .admin-list-user-block {
         display: flex;
         justify-content: space-around;
         width: 80%;
         color: $primary-black;
         margin: 2% auto;
-        > .list-user-block-img {
+        > .admin-list-user-block-img {
             width: 30%;
             height: 80%;
             display: flex;
@@ -53,7 +53,7 @@
                 height: auto;
             }
         }
-        >.list-user-block-actions {
+        >.admin-list-user-block-actions {
             width: 50%;
             display: flex;
             flex-direction: column;
@@ -71,6 +71,22 @@
                 transition: color 0.5s ease;
                 &:hover {
                     color: $primary-red;
+                }
+            }
+            > form {
+                > button {
+                    font-size: 2rem;
+                    padding: 0.8rem;
+                    margin: 2.4rem 0;
+                    color: $primary-orange;
+                    background-color: #fff;
+                    border: 1px solid $primary-orange;
+                    border-radius: 40px;
+                    transition: all 0.5s ease;
+                    &:hover {
+                        color: $primary-red;
+                        border-color: $primary-red;
+                    }
                 }
             }
         }
@@ -102,12 +118,12 @@
 /*DESKTOP*/
 
 @media screen and(max-width: 1600px) {
-    .list-user-page {
+    .admin-list-user-page {
         > #arrow-link-menu {
             top: 35vh;
         }
-        > .list-user-block {
-            .list-user-block-actions {
+        > .admin-list-user-block {
+            .admin-list-user-block-actions {
                 > a {
                     margin: 1.6rem;
                 }
@@ -117,15 +133,15 @@
 }
 
 @media screen and(max-width: 1300px) {
-    .list-user-page {
+    .admin-list-user-page {
         > #arrow-link-menu {
             top: 38vh;
             left: 4%;
             font-size: 2.4rem;
             padding: 0rem 1.2rem;
         }
-        > .list-user-block {
-            .list-user-block-img {
+        > .admin-list-user-block {
+            .admin-list-user-block-img {
                 width: 40%;
             }
         }
@@ -133,7 +149,11 @@
 }
 
 @media screen and(max-width: 1000px) {
-    .list-user-page {
+    .admin-list-user-page {
+        > #arrow-link-menu {
+            top: 37.5vh;
+            left: 5%;
+        }
         > h2 {
             font-size: 2.8rem;
             margin-bottom: 2.4rem;
@@ -141,8 +161,8 @@
         > h3 {
             font-size: 2.4rem;
         }
-        > .list-user-block {
-            > .list-user-block-actions {
+        > .admin-list-user-block {
+            > .admin-list-user-block-actions {
                 > h3 {
                     font-size: 2.4rem;
                 }
@@ -157,10 +177,10 @@
 }
 
 @media screen and(max-width: 860px) {
-    .list-user-page {
+    .admin-list-user-page {
         > #arrow-link-menu {
-            top: 37.5vh;
-            left: 5%;
+            top: 42vh;
+            left: 3%;
         }
         > h2 {
             font-size: 2.4rem;
@@ -170,15 +190,15 @@
             font-size: 2rem;
             margin: 0 1.6rem;
         }
-        > .list-user-block {
+        > .admin-list-user-block {
             flex-direction: column;
             align-items: center;
             width: 75%;
-            > .list-user-block-img {
+            > .admin-list-user-block-img {
                 width: 70%;
                 margin-bottom: 2.4rem;
             }
-            > .list-user-block-actions {
+            > .admin-list-user-block-actions {
                 width: 85%;
                 > h3 {
                     font-size: 2rem;
@@ -194,19 +214,15 @@
 }
 
 @media screen and (max-width: 600px) {
-    .list-user-page {
-        > #arrow-link-menu {
-            top: 42vh;
-            left: 3%;
-        }
+    .admin-list-user-page {
         > h2 {
             font-size: 2rem;
         }
         > h3 {
             font-size: 1.6rem;
         }
-        > .list-user-block {
-            > .list-user-block-actions {
+        > .admin-list-user-block {
+            > .admin-list-user-block-actions {
                 width: 90%;
                 > h3 {
                     font-size: 1.6rem;
@@ -220,7 +236,7 @@
 }
 
 @media screen and (max-width: 480px){
-    .list-user-page {
+    .admin-list-user-page {
         > #arrow-link-menu {
             top: 37vh;
             left: 1%;

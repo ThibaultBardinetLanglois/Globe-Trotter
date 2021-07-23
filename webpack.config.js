@@ -24,6 +24,11 @@ Encore
     .addStyleEntry('home', './assets/styles/home.scss')
     .addStyleEntry('destinations-list', './assets/styles/destinations-list.scss')
     .addStyleEntry('country-show', '/assets/styles/country-show.scss')
+    .addStyleEntry('form-login', '/assets/styles/form-login.scss')
+    .addStyleEntry('form-register', '/assets/styles/form-register.scss')
+    .addStyleEntry('country-form', '/assets/styles/country-form.scss')
+    .addStyleEntry('admin-show-user-list', '/assets/styles/admin-show-user-list.scss')
+    .addStyleEntry('admin-user-table', '/assets/styles/admin-user-table.scss')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('country-form') }}
+{% endblock %}
+
 {% block title %}Nouvel endroit{% endblock %}
 
 {% block body %}
-    <h1>Créez un nouvel endroit</h1>
-
+    <div></div>
     {{ include('country_form/_form.html.twig') }}
-
-    <a href="{{ path('country_index') }}">revenir à l'accueil</a>
 {% endblock %}

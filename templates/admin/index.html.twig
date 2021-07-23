@@ -2,37 +2,41 @@
 
 {% block title %}User index{% endblock %}
 
-{% block body %}
-    <h1>User index</h1>
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin-user-table') }}
+{% endblock %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Username</th>
-                <th>Roles</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            {% if user.username != 'admin' %}
+{% block body %}
+    <div></div>
+    <div class="admin-users-table">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                    <td>
-                        <a href="{{ path('admin_user_list', {id: user.id}) }}">les destinations idéales de {{ user.username }}</a>
-                        {{ include('admin/_delete_form.html.twig') }}
-                    </td>
+                    <th>Pseudo</th>
+                    <th>Rôles</th>
+                    <th>actions</th>
                 </tr>
-            {% endif %}
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                {% if user.username != 'admin' %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        <td>
+                            <a href="{{ path('admin_user_list', {id: user.id}) }}">les destinations idéales de {{ user.username }}</a>
+                            {{ include('admin/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun utilisateurs enregistrés</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 {% endblock %}

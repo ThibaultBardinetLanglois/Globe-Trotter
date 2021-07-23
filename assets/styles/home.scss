@@ -4,10 +4,27 @@
 
 .countries-home-page {
     width: 100%;
+    min-height: 65vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    > #arrow-link-menu {
+        position: fixed;
+        top: 35vh;
+        left: 4.5%;
+        text-decoration: none;
+        color: $primary-orange;
+        font-size: 3.2rem;
+        padding: 0rem 1.6rem;
+        border: 1px solid $primary-orange;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: translateY(-0.3px);
+        }
+    }
     > .add-place-link {
         display: block;
         position: absolute;
@@ -112,7 +129,7 @@
 
 @media screen and (max-width: 1700px) {
     .countries-home-page {
-        > .arrow-link-menu {
+        > #arrow-link-menu {
             top: 35vh;
         }
         > .add-place-link {
@@ -123,6 +140,9 @@
 
 @media screen and (max-width: 1500px) {
     .countries-home-page {
+        > #arrow-link-menu {
+            top: 38vh;
+        }
         > .add-place-link {
             top: 1.5%;
             right: 2%;
@@ -133,23 +153,24 @@
 
 @media screen and (max-width: 1250px) {
     .countries-home-page {
+        > #arrow-link-menu {
+            top: 38vh;
+            left: 4%;
+            font-size: 2.4rem;
+            padding: 0rem 1.2rem;
+        }
         > .add-place-link {
             top: 0%;
             right: 50%;
             transform: translateX(50%);
         }
+        > h2 {
+            margin-top: 5.6rem;
+        }
         > .country-block {
             > .country-block-image{
                 width: 40%;
             }
-        }
-    }
-}
-
-@media screen and (max-width: 1250px) {
-    .countries-home-page {
-        > h2 {
-            margin-top: 5.6rem;
         }
     }
 }
@@ -173,6 +194,10 @@
 
 @media screen and (max-width: 860px) {
     .countries-home-page {
+        > #arrow-link-menu {
+            top: 37.5vh;
+            left: 5%;
+        }
         > .add-place-link {
             font-size: 1.6rem;
             text-align: center;
@@ -203,6 +228,10 @@
 
 @media screen and(max-width: 600px) {
     .countries-home-page {
+        > #arrow-link-menu {
+            top: 42vh;
+            left: 3%;
+        }
         > h2 {
             font-size: 2rem;
         }
@@ -218,5 +247,22 @@
             }
         }
         
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .countries-home-page {
+        > #arrow-link-menu {
+            top: 37vh;
+            left: 1%;
+        }
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .countries-home-page {
+        > .arrow-link-menu {
+            top: 43vh;
+        }
     }
 }

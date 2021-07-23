@@ -1,16 +1,27 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin-show-user-list') }}
+{% endblock %}
+
 {% block body %}
     <div></div>
-    <div class="list-user-page">
-        <h2>Bonjour {{ user.username }}</h2>
-        <h2>Voici vos destinations idéales</h2>
+    <div class="admin-list-user-page">
+        <a id="arrow-link-menu" href="#header-title">&uarr;</a>
+        <h2>Les destinations choisies par {{ user.username }}</h2>
         {% for country in user.countries %}
-            <img src="{{ asset('uploads/images/' ~ country.image) }}">
-            <h3>{{ country.name }}</h3>
-            <p>{{ country.littleDescription }}</p>
-            <a href="{{ path('country_edit', {id: country.id}) }}">Mettre à jour</a>
-            {% include 'country_form/_delete_form.html.twig' %}
+            <div class="admin-list-user-block">
+                <div class="admin-list-user-block-img">
+                    <img src="{{ asset('uploads/images/' ~ country.image) }}">
+                </div>
+                <div class="admin-list-user-block-actions">
+                    <h3>{{ country.name }}</h3>
+                    <p>{{ country.littleDescription }}</p>
+                    <a href="{{ path('country_edit', {id: country.id}) }}">Mettre à jour</a>
+                    {% include 'country_form/_delete_form.html.twig' %}
+                </div>
+            </div>
         {% else %}
             Vous n'avez pas encore ajouté de destinations
         {% endfor %}

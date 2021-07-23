@@ -23,21 +23,6 @@ body {
     background-color: #fff;
     font-size: 1.6rem;
     font-family: monospace;
-    > .arrow-link-menu {
-        position: fixed;
-        top: 35vh;
-        left: 4.5%;
-        text-decoration: none;
-        color: $primary-orange;
-        font-size: 3.2rem;
-        padding: 0rem 1.6rem;
-        border: 1px solid $primary-orange;
-        border-radius: 50%;
-        transition: transform 0.3s ease;
-        &:hover {
-            transform: translateY(-0.3rem);
-        }
-    }
 }
 
 h1 {
@@ -85,12 +70,12 @@ header {
     width:100%;
     min-height: 30vh;
     background-image: linear-gradient(
-        to right bottom, 
-        rgba(40, 147, 180, 0.404), 
-        rgba(40, 180, 133, 0.876)),
-        url(/assets/images/voyage5.jpg);
-        background-size: cover;
-        background-position: center;
+    to right bottom, 
+    rgba(40, 147, 180, 0.404), 
+    rgba(40, 180, 133, 0.876)),
+    url(/assets/images/voyage5.jpg);
+    background-size: cover;
+    background-position: center;
     color: #fff;
     position: relative;
     > h1 {
@@ -161,13 +146,6 @@ footer {
 /*========== RESPONSIVE ==========*/
 /*DESKTOP*/
 
-@media screen and (max-width: 1500px) {
-    body {
-        > .arrow-link-menu {
-            top: 38vh;
-        }
-    }
-}
 
 @media screen and (max-width: 1425px) {
     header {
@@ -182,12 +160,6 @@ footer {
 @media screen and (max-width: 1250px) {
     /*GENERAL PRESETS*/
     body {
-        > .arrow-link-menu {
-            top: 38vh;
-            left: 4%;
-            font-size: 2.4rem;
-            padding: 0rem 1.2rem;
-        }
         > h1 {
             font-size: 4rem;
         }
@@ -249,10 +221,6 @@ footer {
 @media screen and (max-width: 860px) {
     /*GENERAL PRESETS*/
     body {
-        > .arrow-link-menu {
-            top: 37.5vh;
-            left: 5%;
-        }
         > h2 {
             font-size: 2.4rem;
         }
@@ -344,10 +312,6 @@ footer {
 @media screen and (max-width: 600px) {
     /*GENERAL PRESETS*/
     body {
-        > .arrow-link-menu {
-            top: 42vh;
-            left: 3%;
-        }
         > h1 {
             font-size: 2.4rem;
         }
@@ -377,13 +341,6 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
-    body {
-        > .arrow-link-menu {
-            top: 37vh;
-            left: 1%;
-        }
-    }
-
     header {
         .burger-icon {
             top: 6%;
@@ -397,14 +354,6 @@ footer {
             > a {
                 font-size: 1.6rem;
             }
-        }
-    }
-}
-
-@media screen and (max-width: 410px) {
-    body {
-        > .arrow-link-menu {
-            top: 40vh;
         }
     }
 }

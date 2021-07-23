@@ -7,8 +7,8 @@
 
 {% block body %}
     <div></div>
-    <a class="arrow-link-menu" href="#header-title">&uarr;</a>
     <div class="list-user-page">
+        <a id="arrow-link-menu" href="#header-title">&uarr;</a>
         <h2>Bonjour {{ user.username }}</h2>
         <h3>Voici vos destinations idéales</h3>
         {% for country in user.countries %}

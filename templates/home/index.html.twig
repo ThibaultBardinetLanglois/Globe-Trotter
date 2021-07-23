@@ -9,8 +9,8 @@
 
 {% block body %}
     <div></div>
-    <a class="arrow-link-menu" href="#header-title">&uarr;</a>
     <div class="countries-home-page">
+        <a id="arrow-link-menu" href="#header-title">&uarr;</a>
         {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
             <a class="add-place-link" href="{{ path('country_new') }}"><em>+</em>Ajouter un endroit</a>
         {% endif %}

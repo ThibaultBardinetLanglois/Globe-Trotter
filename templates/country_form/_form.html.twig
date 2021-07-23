@@ -1,4 +1,23 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-{{ form_end(form) }}
+<div class="country-form-page">
+    <div class="country-form">
+        {{ form_start(form) }}
+            <div class"country-form-row">
+                <label for="country_name">Nom</label>
+                {{ form_widget(form.name) }}
+            </div>
+            <div class"country-form-row">
+                <label for="country_littleDescription">Phrase introductive</label>
+                {{ form_widget(form.littleDescription) }}
+            </div>
+            <div class"country-form-row">
+                <label for="country_bigDescription">Description</label>
+                {{ form_widget(form.bigDescription) }}
+            </div>
+            <div class"country-form-row">
+                <label for="country_image">Image</label>
+                {{ form_widget(form.image) }}
+            </div>
+            <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+        {{ form_end(form) }}
+    </div>
+</div>
