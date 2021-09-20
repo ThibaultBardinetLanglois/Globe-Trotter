@@ -38,7 +38,7 @@ class CountryType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image',
                 'mapped' => false,
-                'required' => false,
+                'required' => $options['image_required'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '500k',
@@ -52,6 +52,7 @@ class CountryType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Country::class,
+            'image_required' => false
         ]);
     }
 }

@@ -83,9 +83,11 @@
 
 @media screen and (max-width: 1000px) {
     .country-form-page {
-        min-height: 72vh;
+        min-height: 74vh;
         > .country-form {
             width: 50%;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
         }
     }
 }

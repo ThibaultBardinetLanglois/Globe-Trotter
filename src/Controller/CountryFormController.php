@@ -41,7 +41,9 @@ class CountryFormController extends AbstractController
     ): Response
     {
         $country = new Country();
-        $form = $this->createForm(CountryType::class, $country);
+        $form = $this->createForm(CountryType::class, $country, [
+            'image_required' => true
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
